@@ -46,11 +46,12 @@ const ContractDialog = ({setInput}) => {
         e.preventDefault()
         setInput('')
         setContactType('')
+        setContactSize('small')
     }
 
 
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={isOpenModal} onOpenChange={setIsOpenModal}>
             <DialogTrigger>
                 <Tooltip>
                     <TooltipTrigger asChild>
