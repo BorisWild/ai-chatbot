@@ -35,7 +35,7 @@ import ParagraphDialog from '@/components/dialog/paragraph-dialog'
 const ContractDialog = ({setInput}) => {
     const [contractType, setContactType] = useState('NDA')
     const [contractSize, setContactSize] = useState('small')
-    const [isOpenModal, setIsOpenModal] = useState(true);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     const makePromt = () => {
         setInput(`Make the following contract: ${contractType}. Make it ${contractSize} in size.`)
