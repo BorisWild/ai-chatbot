@@ -3,26 +3,25 @@ import Link from 'next/link'
 
 import {cn} from '@/lib/utils'
 import {auth} from '@/auth'
-import {clearChats} from '@/app/actions'
+
 import {Button, buttonVariants} from '@/components/ui/button'
-import {Sidebar} from '@/components/sidebar'
-import {SidebarList} from '@/components/sidebar-list'
+
 import {
     IconEdit,
     IconNextChat,
-    IconSeparator,
+
     IconUser
 } from '@/components/ui/icons'
-import {SidebarFooter} from '@/components/sidebar-footer'
+
 import {ThemeToggle} from '@/components/theme-toggle'
-import {ClearHistory} from '@/components/clear-history'
-import {UserMenu} from '@/components/user-menu'
+
+
 import {SidebarMobile} from './sidebar-mobile'
 import {SidebarToggle} from './sidebar-toggle'
 import {ChatHistory} from './chat-history'
 
 async function UserOrLogin() {
-    const session = await auth()
+//    const session = await auth()
     return (
         <>
             <Link href="/" target="_blank" rel="nofollow">
@@ -45,7 +44,7 @@ export function Header() {
             <div className="flex items-center justify-end space-x-2">
                 <a
                     target="_blank"
-                    href="http://157.230.176.26/app/login"
+                    href={process.env.REGISTRATION_URL ?? "http://157.230.176.26/app/login"}
                     rel="noopener noreferrer"
                     className={cn(buttonVariants({variant: 'outline'}))}
                 >
@@ -53,7 +52,7 @@ export function Header() {
                     <span className="ml-2 md:flex">Login</span>
                 </a>
                 <a
-                    href="http://157.230.176.26/app/register"
+                    href={process.env.LOGIN_URL ?? "http://157.230.176.26/app/register"}
                     target="_blank"
                     className={cn(buttonVariants())}
                 >
