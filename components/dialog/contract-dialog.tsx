@@ -33,12 +33,13 @@ import ParagraphDialog from '@/components/dialog/paragraph-dialog'
 
 
 const ContractDialog = ({setInput}) => {
-    const [contractType, setContactType] = useState('NDA');
-    const [contractSize, setContactSize] = useState('small');
-
+    const [contractType, setContactType] = useState('NDA')
+    const [contractSize, setContactSize] = useState('small')
+    const [isOpenModal, setIsOpenModal] = useState(true);
 
     const makePromt = () => {
         setInput(`Make the following contract: ${contractType}. Make it ${contractSize} in size.`)
+        setIsOpenModal(false)
     }
 
     const clearPromt = (e) => {
@@ -49,7 +50,7 @@ const ContractDialog = ({setInput}) => {
 
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger>
                 <Tooltip>
                     <TooltipTrigger asChild>
