@@ -17,7 +17,7 @@ const ContractSize = ({contractSize, setContactSize}) => (
         <SelectContent>
             <SelectGroup>
 
-                {ContractSizes.map((size) => (<SelectItem value={size}>{size.toUpperCase()}</SelectItem>))}
+                {ContractSizes.map((size) => (<SelectItem value={size} key={size}>{size.toUpperCase()}</SelectItem>))}
 
             </SelectGroup>
         </SelectContent>
