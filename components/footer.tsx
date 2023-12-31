@@ -15,7 +15,7 @@ export function FooterText({className, ...props}: React.ComponentProps<'p'>) {
             )}
             {...props}
         >
-            Lawyer Assistant {date.getFullYear()}.
+            Lawyer Copilot {date.getFullYear()}.
         </p>
     )
 }
