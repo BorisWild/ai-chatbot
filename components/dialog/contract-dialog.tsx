@@ -8,7 +8,7 @@ import {
 
 import {cn} from '@/lib/utils'
 import {buttonVariants} from '@/components/ui/button'
-import {siteTexts} from '../../data'
+import {siteTexts} from '../../data/site-texts'
 
 import {Button} from '@/components/ui/button'
 import {IconArrowElbow, IconPlus, IconRefresh} from '@/components/ui/icons'
@@ -30,6 +30,7 @@ import
     DialogDescription
 } from '@/components/ui/dialog'
 import ParagraphDialog from '@/components/dialog/paragraph-dialog'
+import ContractTypeSelect from '../combobox/contract-type-combo';
 
 
 const ContractDialog = ({setInput}) => {
@@ -77,15 +78,19 @@ const ContractDialog = ({setInput}) => {
                 </DialogDescription>
 
 
-                <div className="flex flex-col" key='dsdsd'>
+                <div className="flex flex-col gap-2">
                     <div className='my-2' key='d1'>
                         <Label className='my-2'>Type of document: </Label>
                     </div>
-                    <SelectContract
-                        key='SelectContract1'
+                    <ContractTypeSelect
                         contractType={contractType}
                         setContactType={setContactType}
                     />
+                    {/* <SelectContract
+                        key='SelectContract1'
+                        contractType={contractType}
+                        setContactType={setContactType}
+                    /> */}
                     <div className='my-2' key='d2'>
                         <Label>Size of text: </Label>
                     </div>

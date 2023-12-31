@@ -7,7 +7,7 @@ import {
     SelectContent,
     SelectItem,
 } from '@/components/ui/select'
-import {ContractTypes} from '../../data'
+import {contractTypes} from '../../data/contract-types'
 
 
 const SelectContract = ({contractType, setContactType}) => (
@@ -17,7 +17,7 @@ const SelectContract = ({contractType, setContactType}) => (
         </SelectTrigger>
         <SelectContent position='item-aligned'>
             <SelectGroup>
-                {ContractTypes.map((item, index) => (
+                {contractTypes.map((item, index) => (
                     <SelectItem key={item + index} value={item}>{item.toUpperCase()}</SelectItem>))}
 
             </SelectGroup>

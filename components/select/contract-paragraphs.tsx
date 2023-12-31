@@ -7,7 +7,7 @@ import {
     SelectContent,
     SelectItem,
 } from '@/components/ui/select'
-import {ContractSizes} from '../../data'
+import {ContractSizes} from '../../data/site-texts'
 
 const ContractSize = ({contractSize, setContactSize}) => (
     <Select value={contractSize} onValueChange={setContactSize}>

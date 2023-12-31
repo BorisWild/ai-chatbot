@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/tooltip'
 import {IconArrowElbow} from '@/components/ui/icons'
 import {useRouter} from 'next/navigation'
-import {siteTexts} from '../data'
+import {siteTexts} from '../data/site-texts'
 import ContractDialog from '@/components/dialog/contract-dialog'
 
 export interface PromptProps
