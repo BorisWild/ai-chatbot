@@ -8,10 +8,11 @@ import {
     TooltipContent,
     TooltipTrigger
 } from '@/components/ui/tooltip'
-import {IconArrowElbow} from '@/components/ui/icons'
+import {IconArrowElbow,IconEdit} from '@/components/ui/icons'
 import {useRouter} from 'next/navigation'
 import {siteTexts} from '../data/site-texts'
 import ContractDialog from '@/components/dialog/contract-dialog'
+
 
 export interface PromptProps
     extends Pick<UseChatHelpers, 'input' | 'setInput'> {
@@ -50,7 +51,6 @@ export function PromptForm({
                 className="relative flex flex-col w-full px-8 overflow-hidden max-h-60 grow bg-background sm:rounded-md sm:border sm:px-12">
 
                 <ContractDialog setInput={setInput}/>
-
                 <Textarea
                     ref={inputRef}
                     tabIndex={0}
@@ -62,6 +62,24 @@ export function PromptForm({
                     spellCheck={false}
                     className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
                 />
+{/* <div className="absolute right-4 top-4 sm:right-8">
+<Tooltip>
+                    <TooltipTrigger asChild>
+
+                        <div
+                            className={cn(
+                                buttonVariants({size: 'sm', variant: 'outline'}),
+                                'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'
+                            )}
+                        >
+                            <IconEdit/>
+                        </div>
+
+                    </TooltipTrigger>
+                    <TooltipContent>Customize chapters</TooltipContent>
+
+                </Tooltip>
+                </div> */}
                 <div className="absolute right-0 top-4 sm:right-4">
                     <Tooltip>
                         <TooltipTrigger asChild>

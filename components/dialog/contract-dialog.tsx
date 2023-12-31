@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import SelectContract from '../select/contract-type';
+
 import {
     Tooltip,
     TooltipContent,
@@ -8,13 +8,10 @@ import {
 
 import {cn} from '@/lib/utils'
 import {buttonVariants} from '@/components/ui/button'
-import {siteTexts} from '../../data/site-texts'
 
 import {Button} from '@/components/ui/button'
 import {IconArrowElbow, IconPlus, IconRefresh} from '@/components/ui/icons'
 import ContractSize from '../select/contract-size';
-
-import {Label} from '@radix-ui/react-label';
 
 import
 {
@@ -34,12 +31,12 @@ import ContractTypeSelect from '../combobox/contract-type-combo';
 
 
 const ContractDialog = ({setInput}) => {
-    const [contractType, setContactType] = useState('NDA')
+    const [contractType, setContactType] = useState('')
     const [contractSize, setContactSize] = useState('small')
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const makePromt = () => {
-        setInput(`Make the following contract: ${contractType}. Make it ${contractSize} in size.`)
+        setInput(`Make the following contract: ${contractType || 'NDA'}. Make it ${contractSize} in size.`)
         setIsOpenModal(false)
     }
 
@@ -79,9 +76,7 @@ const ContractDialog = ({setInput}) => {
 
 
                 <div className="flex flex-col gap-2">
-                    <div className='my-2' key='d1'>
-                        <Label className='my-2'>Type of document: </Label>
-                    </div>
+                    
                     <ContractTypeSelect
                         contractType={contractType}
                         setContactType={setContactType}
@@ -91,9 +86,7 @@ const ContractDialog = ({setInput}) => {
                         contractType={contractType}
                         setContactType={setContactType}
                     /> */}
-                    <div className='my-2' key='d2'>
-                        <Label>Size of text: </Label>
-                    </div>
+                   
                     <ContractSize
                         key='ContractSize1'
                         contractSize={contractSize}
