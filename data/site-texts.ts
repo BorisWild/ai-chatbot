@@ -1,6 +1,6 @@
 export const siteTexts = {
 
-    LblSendMsg: 'Send message',
+    LblSendMsg: '< Create Contract',
 
     //empty-screen.tsx
     ChatTitle: 'I\'m a Lawyer CoPilot!',

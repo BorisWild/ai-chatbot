@@ -24,7 +24,7 @@ export async function SidebarList({userId}: SidebarListProps) {
                     </div>
                 ) : (
                     <div className="p-8 text-center">
-                        <p className="text-sm text-muted-foreground">No paragraphs</p>
+                        <p className="text-sm text-muted-foreground">...</p>
                     </div>
                 )}
             </div>
