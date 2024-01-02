@@ -21,6 +21,7 @@ const ParagraphDialog = ({children, messages}) => {
     const [paragraphTotal, setParagraphTotal] = useState(1);
     const [paragraphArr, setPparagraphArr] = useState([]);
 
+console.log(messages);
 
     return (
         <Dialog>
@@ -32,14 +33,14 @@ const ParagraphDialog = ({children, messages}) => {
 
 
             <DialogContent>
-                <DialogTitle>Create Paragraphs</DialogTitle>
+                <DialogTitle>Edit Chapters</DialogTitle>
                 <DialogDescription className="DialogDescription">
-                    Choose theme for each chapter by writing the title of paragrapgh.
+                    Your chapters:
                 </DialogDescription>
 
 
-                <Label>Size of text: </Label>
-                {messages.map((item)=>item.content)}
+                
+                {messages.map((item)=><Label>{item.content}</Label>)}
 
                 <div style={{display: 'flex', marginTop: 25, justifyContent: 'flex-end'}}>
                     <DialogClose/>
