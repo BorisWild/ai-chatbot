@@ -12,11 +12,14 @@ import {IconArrowElbow,IconEdit} from '@/components/ui/icons'
 import {useRouter} from 'next/navigation'
 import {siteTexts} from '../data/site-texts'
 import ContractDialog from '@/components/dialog/contract-dialog'
-
+import {cn} from '@/lib/utils'
+import {buttonVariants} from '@/components/ui/button'
+import ParagraphDialog from './dialog/paragraph-dialog'
 
 export interface PromptProps
     extends Pick<UseChatHelpers, 'input' | 'setInput'> {
-    onSubmit: (value: string) => void
+    onSubmit: (value: string) => void,
+    messages: any,
     isLoading: boolean
 }
 
@@ -24,7 +27,8 @@ export function PromptForm({
                                onSubmit,
                                input,
                                setInput,
-                               isLoading
+                               isLoading,
+                               messages
                            }: PromptProps) {
     const {formRef, onKeyDown} = useEnterSubmit()
     const inputRef = React.useRef<HTMLTextAreaElement>(null)
@@ -62,14 +66,15 @@ export function PromptForm({
                     spellCheck={false}
                     className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
                 />
-{/* <div className="absolute right-4 top-4 sm:right-8">
-<Tooltip>
+                
+                <div className="absolute right-0 top-4 sm:right-4 flex gap-2">
+                <ParagraphDialog  messages={messages}>
+                <Tooltip key='tolltip1'>
                     <TooltipTrigger asChild>
-
                         <div
                             className={cn(
                                 buttonVariants({size: 'sm', variant: 'outline'}),
-                                'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'
+                                'left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'
                             )}
                         >
                             <IconEdit/>
@@ -77,10 +82,8 @@ export function PromptForm({
 
                     </TooltipTrigger>
                     <TooltipContent>Customize chapters</TooltipContent>
-
                 </Tooltip>
-                </div> */}
-                <div className="absolute right-0 top-4 sm:right-4">
+                </ParagraphDialog>
                     <Tooltip>
                         <TooltipTrigger asChild>
                             <Button

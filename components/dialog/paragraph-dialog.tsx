@@ -16,7 +16,7 @@ import
 } from '@/components/ui/dialog'
 
 
-const ParagraphDialog = ({children}) => {
+const ParagraphDialog = ({children, messages}) => {
 
     const [paragraphTotal, setParagraphTotal] = useState(1);
     const [paragraphArr, setPparagraphArr] = useState([]);
@@ -39,7 +39,7 @@ const ParagraphDialog = ({children}) => {
 
 
                 <Label>Size of text: </Label>
-
+                {messages.map((item)=>item.content)}
 
                 <div style={{display: 'flex', marginTop: 25, justifyContent: 'flex-end'}}>
                     <DialogClose/>

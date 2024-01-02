@@ -36,7 +36,9 @@ const ContractDialog = ({setInput}) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const makePromt = () => {
-        setInput(`Make the following contract: ${contractType || 'NDA'}. Make it ${contractSize} in size.`)
+        setInput(`Make a numeric List of chapters for the following document: ${contractType || 'NDA'}.`)
+        
+        //setInput(`Make a numeric List of chapters for the following document: ${contractType || 'NDA'}. Make it ${contractSize} in size.`)
         setIsOpenModal(false)
     }
 
@@ -92,7 +94,7 @@ const ContractDialog = ({setInput}) => {
                         contractSize={contractSize}
                         setContactSize={setContactSize}
                     />
-                    {/* <ParagraphDialog>
+              {/* <ParagraphDialog>
                 <Button
                   type="submit"
                   size="sm"
@@ -101,7 +103,7 @@ const ContractDialog = ({setInput}) => {
                   <IconRefresh />
                   <span>Customize chapters</span>
                 </Button>
-              </ParagraphDialog> */}
+              </ParagraphDialog>  */}
 
                     <DialogFooter>
                         <div className='mt-3.5 flex w-full justify-between'>
