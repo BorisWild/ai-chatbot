@@ -30,15 +30,20 @@ import ParagraphDialog from '@/components/dialog/paragraph-dialog'
 import ContractTypeSelect from '../combobox/contract-type-combo';
 
 
-const ContractDialog = ({setInput}) => {
+const ContractDialog = ({setInput,onSubmit}) => {
     const [contractType, setContactType] = useState('')
     const [contractSize, setContactSize] = useState('small')
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const makePromt = () => {
-        setInput(`Make a numeric List of chapters for the following document: ${contractType || 'NDA'}.`)
+        const promt=`Make a ${contractSize} numeric List of chapters for the following document: ${contractType || 'NDA'}.`    
         
-        //setInput(`Make a numeric List of chapters for the following document: ${contractType || 'NDA'}. Make it ${contractSize} in size.`)
+        //set promt input:
+        //setInput(promt)
+
+        //submit promt form:
+        onSubmit(promt)
+        
         setIsOpenModal(false)
     }
 
