@@ -56,8 +56,11 @@ const ContractDialog = ({setInput,onSubmit}) => {
 
 
     return (
-        <Dialog open={isOpenModal} onOpenChange={setIsOpenModal}>
-            <DialogTrigger>
+        <Dialog open={isOpenModal} onOpenChange={(isVisible)=>{
+            setIsOpenModal(isVisible)
+            setContactType('')
+            }}>
+            <DialogTrigger> 
                 <Tooltip>
                     <TooltipTrigger asChild>
 
