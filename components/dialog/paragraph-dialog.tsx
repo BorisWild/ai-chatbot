@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {SetStateAction, useEffect, useState} from 'react';
 import {Cross2Icon} from '@radix-ui/react-icons';
 import {Label} from '@/components/ui/label';
 import
@@ -29,7 +29,7 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
     const [chapterListMsgNumber, setChapterListMsgNumber]=useState(INITIAL_MSG_NUMBER)
     const [listChaptersMode, setListChaptersMode]=useState(true)
     const [paragraphArr, setParagraphArr] = useState([])
-    const [wrotenChaptersArr,setWrotenChaptersArr ] = useState()
+    const [wrotenChaptersArr,setWrotenChaptersArr ] = useState<string[]>([])
     
     useEffect(()=>{
         setListChaptersMode(true)
@@ -61,7 +61,8 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
         const regenerateChapter = (paragraphNumber) => {
             setListChaptersMode(false)
             getLastChaptersMsgNumber()
-            setWrotenChaptersArr(prevItems => [...prevItems, paragraphNumber])
+            
+            setWrotenChaptersArr((prevState ) => [...prevState, paragraphNumber])
             console.log(wrotenChaptersArr)
 
             const chaptersText = (chaptersArr.map((chapter)=>chapter.split('.')[1])).join(", ")
