@@ -19,61 +19,91 @@ import {cn} from '@/lib/utils'
 import {buttonVariants} from '@/components/ui/button'
 
 import {Button} from '@/components/ui/button'
-import {IconArrowElbow, IconPlus, IconRefresh} from '@/components/ui/icons'
+import {IconArrowElbow, IconTrash, IconRefresh} from '@/components/ui/icons'
 
 
-const ParagraphDialog = ({children, messages}) => {
-
+const ParagraphDialog = ({children, messages, onSubmit}) => {
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const [paragraphTotal, setParagraphTotal] = useState(1);
-    const [paragraphArr, setPparagraphArr] = useState([]);
+    const [paragraphArr, setParagraphArr] = useState(messages.length>0 ? messages[1].content.split('\n') : []);
 
-
+    
 
 const ChapterInput = ({messages})=>{
 
-    console.log(messages);
-    const chaptersArr = messages[1].content.split('\n')
-const regenerateChapter = () => {
-    console.log('regenerate');
+    console.log(messages)
     
-}
-
-const removeChapter = () => {
-    console.log('remove');
+    const chaptersText = paragraphArr.join(" ")
     
-}
-
-return chaptersArr.map((chapter,i)=>(
+    
+    const regenerateChapter = (paragrapgNumber) => {
         
-        <div key={i} className='flex w-full gap-2 items-center'>
+        const promt=`I'm writing following document: ${'NDA'} with
+                    this list of chapters: ${chaptersText}. 
+                    Please generate chapter number ${paragrapgNumber} with
+                    a lot of paragraphs`
+
+        console.log(promt);
+
+        //set promt input:
+        //setInput(promt)
+
+        //submit promt form:
+        onSubmit(promt)
+        
+        setIsOpenModal(false)
+    }
+
+    const removeChapter = (paragrapgNumber) => {
+        console.log('remove'+paragrapgNumber);
+
+        const filteredArr = paragraphArr.filter(chapter=>chapter!==paragraphArr[paragrapgNumber])
+
+        console.log(filteredArr)
+
+        setParagraphArr(filteredArr)
+        
+    }
+
+return paragraphArr.map((chapter,i)=>(
+        
+        <div key={i} className='flex w-full gap-2 flex-row justify-between'>
+                        <div >
                             <Button
                                 key="b1"
                                 type="submit"
                                 size="icon"
                                 variant="outline"
-                                onClick={regenerateChapter}
+                                onClick={()=>regenerateChapter(i)}
                                 className={cn(buttonVariants({variant: 'outline', size: 'icon'}))}
                             >
                                 <IconRefresh/>
                             </Button>
+
+                        </div>
+                        <div>
+                            <Label>{i+1}.{chapter.split(".")[1] + (chapter.split(".")[2] ?? "")}</Label>
+                        </div>
+                        <div >
                             <Button
                                 key="b2"
                                 type="submit"
                                 size="icon"
-                                onClick={removeChapter}
+                                onClick={()=>removeChapter(i)}
                             >
-                                <IconArrowElbow/>
+                                <IconTrash/>
                             </Button>
-                            <Label>{chapter}</Label>
                         </div>
-        
+        </div>
     )
 )
 }
 
     return (
-        <Dialog>
-
+        <Dialog open={isOpenModal} onOpenChange={(isVisible)=>{
+            setIsOpenModal(isVisible)
+            
+            }}>
 
             <DialogTrigger>
                 {children}

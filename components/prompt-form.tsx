@@ -68,7 +68,7 @@ export function PromptForm({
                 />
                 
                 <div className="absolute right-0 top-4 sm:right-4 flex gap-2">
-                <ParagraphDialog  messages={messages}>
+                <ParagraphDialog onSubmit={onSubmit}  messages={messages}>
                 <Tooltip key='tolltip1'>
                     <TooltipTrigger asChild>
                         <div
