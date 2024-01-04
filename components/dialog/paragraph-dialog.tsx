@@ -29,7 +29,7 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
     const [chapterListMsgNumber, setChapterListMsgNumber]=useState(INITIAL_MSG_NUMBER)
     const [listChaptersMode, setListChaptersMode]=useState(true)
     const [paragraphArr, setParagraphArr] = useState([])
-    const [wrotenChaptersArr,setWrotenChaptersArr ] = useState([])
+    const [wrotenChaptersArr,setWrotenChaptersArr ] = useState()
     
     useEffect(()=>{
         setListChaptersMode(true)
