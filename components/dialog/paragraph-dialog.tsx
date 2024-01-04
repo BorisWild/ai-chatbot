@@ -28,13 +28,13 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [chapterListMsgNumber, setChapterListMsgNumber]=useState(INITIAL_MSG_NUMBER)
     const [listChaptersMode, setListChaptersMode]=useState(true)
-    const [paragraphArr, setParagraphArr] = useState([]);
-
+    const [paragraphArr, setParagraphArr] = useState([])
+    const [wrotenChaptersArr,setWrotenChaptersArr ] = useState([])
+    
     useEffect(()=>{
         setListChaptersMode(true)
         setParagraphArr([])
-
- setChapterListMsgNumber(INITIAL_MSG_NUMBER)
+        setChapterListMsgNumber(INITIAL_MSG_NUMBER)
     },[documentType])
 
 
@@ -55,13 +55,15 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
         const chaptersArr = paragraphArr.length 
                                 ? paragraphArr 
                                 : messages[msgIndex]?.content ? messages[msgIndex].content.split('\n') : []
+ 
         
         
         const regenerateChapter = (paragraphNumber) => {
             setListChaptersMode(false)
             getLastChaptersMsgNumber()
-           
-
+            setWrotenChaptersArr(wrotenChaptersArr[paragraphNumber])
+            console.log(wrotenChaptersArr)
+            
             const chaptersText = (chaptersArr.map((chapter)=>chapter.split('.')[1])).join(", ")
             const selectedChapter = chaptersArr[paragraphNumber-1].split('.')[1]
 
