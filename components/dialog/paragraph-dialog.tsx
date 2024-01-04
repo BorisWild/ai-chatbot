@@ -143,9 +143,11 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
                 <div style={{display: 'flex', marginTop: 25, justifyContent: 'flex-end'}}>
                     <DialogClose/>
                 </div>
-                <DialogFooter className='flex justify-center items-center'>
-                    <DialogClose/>
-                </DialogFooter>
+                <DialogClose asChild className='flex justify-center items-center'>
+                    <button className="IconButton" aria-label="Close">
+                        <Cross2Icon/>
+                    </button>
+                </DialogClose>
             </DialogContent>
 
         </Dialog>
