@@ -23,7 +23,7 @@ export function ChatHistory({userId}: ChatHistoryProps) {
                     
                 >
                     <IconPlus className="-translate-x-2 stroke-2"/>
-                    New Contract
+                    New Document
                 </Button>
         </div>
     )
