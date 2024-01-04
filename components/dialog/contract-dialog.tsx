@@ -74,12 +74,12 @@ const ContractDialog = ({setInput,onSubmit}) => {
                         </div>
 
                     </TooltipTrigger>
-                    <TooltipContent>New Contract</TooltipContent>
+                    <TooltipContent>New Document</TooltipContent>
 
                 </Tooltip>
             </DialogTrigger>
             <DialogContent>
-                <DialogTitle>Create Contract</DialogTitle>
+                <DialogTitle>Create Document</DialogTitle>
                 <DialogDescription className="DialogDescription">
                     Make your contract here. Click arrow and choose your contract type.
                 </DialogDescription>
