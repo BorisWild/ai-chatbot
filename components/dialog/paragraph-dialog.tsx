@@ -35,12 +35,13 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
         setListChaptersMode(true)
         setParagraphArr([])
         setChapterListMsgNumber(INITIAL_MSG_NUMBER)
+        setWrotenChaptersArr([])
     },[documentType])
 
 
     const getLastChaptersMsgNumber = ()=>{
-        console.log('MsgNumber:'+(messages.length-1))
-        console.log('listChaptersMode:'+(listChaptersMode))
+        console.log('messages.length-1:', messages.length-1)
+        console.log('listChaptersMode',listChaptersMode)
 
         listChaptersMode && setChapterListMsgNumber(messages.length-1)
 
@@ -63,8 +64,10 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
             getLastChaptersMsgNumber()
             
             setWrotenChaptersArr((prevState ) => [...prevState, paragraphNumber])
-            console.log(wrotenChaptersArr)
 
+            console.log('paragraphNumber',paragraphNumber)
+            
+            
             const chaptersText = (chaptersArr.map((chapter)=>chapter.split('.')[1])).join(", ")
             const selectedChapter = chaptersArr[paragraphNumber-1].split('.')[1]
 
