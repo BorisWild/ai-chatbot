@@ -94,10 +94,10 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
             <div key={i} >
                             <div>
                                 <Label>{i+1}.{chapter.split(".")[1] + (chapter.split(".")[2] ?? "")}</Label>
-                                {wrotenChaptersArr.indexOf((i+1)+"") && 
+                                {wrotenChaptersArr.indexOf(i+1) && 
                                  <Badge
-                                 className={cn(badgeVariants(), ['w-3/5', 'h-10'])}
-                             >DONE</Badge>}
+                                 className={cn(badgeVariants(), ['ml-2'])}
+                                >DONE</Badge>}
                             </div>
                             
                             <div className='flex w-full gap-2 flex-row justify-between'>
