@@ -39,21 +39,25 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
 
 
     const getLastChaptersMsgNumber = ()=>{
-        setListChaptersMode(false)
-        listChaptersMode && setChapterListMsgNumber(messages.length-1)}
+        console.log('setChapterListMsgNumber:'+(messages.length-1))
+        
+        listChaptersMode && setChapterListMsgNumber(messages.length-1)
+
+        console.log(chapterListMsgNumber)
+        
+        return chapterListMsgNumber
+    }
 
     const ChapterInput = ({messages})=>{
-      
-        const msgIndex = listChaptersMode ? messages.length-1 : chapterListMsgNumber;
-
-
-
+        
+        const msgIndex = getLastChaptersMsgNumber();
         const chaptersArr = paragraphArr.length 
                                 ? paragraphArr 
                                 : messages[msgIndex]?.content ? messages[msgIndex].content.split('\n') : []
         
         
         const regenerateChapter = (paragraphNumber) => {
+            setListChaptersMode(false)
             getLastChaptersMsgNumber()
            
 
