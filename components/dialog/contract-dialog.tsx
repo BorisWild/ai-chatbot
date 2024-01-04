@@ -39,7 +39,7 @@ const ContractDialog = ({setInput,onSubmit}) => {
         const promt=`Make a ${contractSize} numeric List of chapters for the following document: ${contractType || 'NDA'}.`    
         
         //set promt input:
-        //setInput(promt)
+        setInput(contractType)
 
         //submit promt form:
         onSubmit(promt)
@@ -52,7 +52,7 @@ const ContractDialog = ({setInput,onSubmit}) => {
         setInput('')
         setContactType('')
         setContactSize('small')
-    }
+           }
 
 
     return (

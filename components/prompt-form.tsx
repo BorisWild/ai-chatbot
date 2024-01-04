@@ -9,7 +9,7 @@ import {
     TooltipTrigger
 } from '@/components/ui/tooltip'
 import {IconArrowElbow,IconEdit} from '@/components/ui/icons'
-import {useRouter} from 'next/navigation'
+
 import {siteTexts} from '../data/site-texts'
 import ContractDialog from '@/components/dialog/contract-dialog'
 import {cn} from '@/lib/utils'
@@ -32,7 +32,12 @@ export function PromptForm({
                            }: PromptProps) {
     const {formRef, onKeyDown} = useEnterSubmit()
     const inputRef = React.useRef<HTMLTextAreaElement>(null)
-    const router = useRouter()
+    
+
+    
+    const [documentType, setDocumentType]=React.useState('Document')
+    
+
     React.useEffect(() => {
         if (inputRef.current) {
             inputRef.current.focus()
@@ -46,15 +51,20 @@ export function PromptForm({
                 if (!input?.trim()) {
                     return
                 }
-                setInput('')
+                
                 await onSubmit(input)
+
+                setInput('')
             }}
             ref={formRef}
         >
             <div
                 className="relative flex flex-col w-full px-8 overflow-hidden max-h-60 grow bg-background sm:rounded-md sm:border sm:px-12">
 
-                <ContractDialog setInput={setInput} onSubmit={onSubmit}/>
+                <ContractDialog 
+                    setInput={setDocumentType} 
+                    onSubmit={onSubmit} 
+                />
                 <Textarea
                     ref={inputRef}
                     tabIndex={0}
@@ -68,7 +78,11 @@ export function PromptForm({
                 />
                 
                 <div className="absolute right-0 top-4 sm:right-4 flex gap-2">
-                <ParagraphDialog onSubmit={onSubmit}  messages={messages}>
+                <ParagraphDialog 
+                    documentType={documentType} 
+                    onSubmit={onSubmit}  
+                    messages={messages}
+                >
                 <Tooltip key='tolltip1'>
                     <TooltipTrigger asChild>
                         <div
