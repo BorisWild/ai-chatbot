@@ -49,9 +49,7 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
       
         const msgIndex = listChaptersMode ? messages.length-1 : chapterListMsgNumber;
 
- !listChaptersMode 
-        && chapterListMsgNumber===INITIAL_MSG_NUMBER 
-        && setChapterListMsgNumber(messages.length-1)
+
 
         const chaptersArr = paragraphArr.length 
                                 ? paragraphArr 
