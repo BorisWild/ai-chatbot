@@ -32,7 +32,9 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
 
     useEffect(()=>{
         setListChaptersMode(true)
-        setChapterListMsgNumber(INITIAL_MSG_NUMBER)
+       setParagraphArr([])
+
+ setChapterListMsgNumber(INITIAL_MSG_NUMBER)
     },[documentType])
 
 
