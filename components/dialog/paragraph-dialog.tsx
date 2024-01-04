@@ -32,7 +32,7 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
 
     useEffect(()=>{
         setListChaptersMode(true)
-       setParagraphArr([])
+        setParagraphArr([])
 
  setChapterListMsgNumber(INITIAL_MSG_NUMBER)
     },[documentType])
@@ -40,9 +40,7 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
 
     const getLastChaptersMsgNumber = ()=>{
         setListChaptersMode(false)
-        
-         chapterListMsgNumber===INITIAL_MSG_NUMBER 
-        && setChapterListMsgNumber(messages.length-1)}
+        listChaptersMode && setChapterListMsgNumber(messages.length-1)}
 
     const ChapterInput = ({messages})=>{
       
