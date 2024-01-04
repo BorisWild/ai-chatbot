@@ -41,9 +41,10 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
     const getLastChaptersMsgNumber = ()=>{
         console.log('MsgNumber:'+(messages.length-1))
         console.log('listChaptersMode:'+(listChaptersMode))
+
         listChaptersMode && setChapterListMsgNumber(messages.length-1)
 
-        console.log(chapterListMsgNumber)
+        console.log('chapterListMsgNumber',chapterListMsgNumber)
         
         return chapterListMsgNumber
     }
