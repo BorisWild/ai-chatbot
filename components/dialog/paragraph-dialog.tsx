@@ -61,9 +61,9 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
         const regenerateChapter = (paragraphNumber) => {
             setListChaptersMode(false)
             getLastChaptersMsgNumber()
-            setWrotenChaptersArr(wrotenChaptersArr[paragraphNumber])
+            setWrotenChaptersArr(prevItems => [...prevItems, paragraphNumber])
             console.log(wrotenChaptersArr)
-            
+
             const chaptersText = (chaptersArr.map((chapter)=>chapter.split('.')[1])).join(", ")
             const selectedChapter = chaptersArr[paragraphNumber-1].split('.')[1]
 
@@ -95,18 +95,18 @@ const ParagraphDialog = ({children, messages, onSubmit, documentType}) => {
                                 <Label>{i+1}.{chapter.split(".")[1] + (chapter.split(".")[2] ?? "")}</Label>
                             </div>
                             
-                            <div className='flex w-full gap-2 flex-row justify-end'>
+                            <div className='flex w-full gap-2 flex-row justify-between'>
                                 
-                                    <Button
-                                        type="submit"
-                                        size="sm"
-                                        variant="outline"
-                                        onClick={()=>regenerateChapter(i+1)}
-                                        className={cn(buttonVariants({variant: 'outline', size: 'sm'}))}
-                                    >
-                                        <IconRefresh className='mr-2'/>
-                                        Rewrite
-                                    </Button>
+                                <Button
+                                    type="submit"
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={()=>regenerateChapter(i+1)}
+                                    className={cn(buttonVariants({variant: 'outline', size: 'sm'}))}
+                                >
+                                    <IconRefresh className='mr-2'/>
+                                    Rewrite
+                                </Button>
                                 
                                 <Button
                                     key="b2"
